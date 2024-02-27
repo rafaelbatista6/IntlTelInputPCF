@@ -1,6 +1,6 @@
 .iti {
   position: relative;
-  display: inline-block; }
+  display: flex; }
   .iti * {
     box-sizing: border-box;
     -moz-box-sizing: border-box; }
@@ -59,7 +59,7 @@
       .iti__country-list {
         white-space: normal; } }
   .iti__flag-box {
-    display: inline-block;
+    display: flex;
     width: 20px; }
   .iti__divider {
     padding-bottom: 5px;
@@ -98,12 +98,10 @@
   .iti--separate-dial-code .iti__selected-dial-code {
     margin-left: 6px; }
   .iti--container {
-    position: absolute;
-    top: -1000px;
-    left: -1000px;
-    z-index: 1060;
+    position: fixed;
+    z-index: 1;
     padding: 1px; }
-    .iti--container:hover {
+    .iti--container:hover{
       cursor: pointer; }
 
 .iti-mobile .iti--container {

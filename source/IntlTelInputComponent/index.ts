@@ -29,11 +29,13 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement)
 	{
 		this._notifyOutputChanged = notifyOutputChanged;
-
 		this._phoneInput = document.createElement('input');
-		this._phoneInput.setAttribute('type', 'text');
+		this._phoneInput.setAttribute('type', 'text'); 
+		this._phoneInput.className="inputText";
+		this._phoneInput.readOnly=context.mode.isControlDisabled;
+		this._phoneInput.setAttribute(context.mode.isControlDisabled?"disabled":"enabled","true");
 		this._phoneInput.addEventListener('change', this.onPhoneChange.bind(this));
-
+		this._phoneInput.addEventListener("countrychange",this.onCountryChange.bind(this));
 		container.appendChild(this._phoneInput);
 		
 		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
@@ -43,6 +45,10 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	}
 
 	private onPhoneChange(event: Event): void {
+		this._notifyOutputChanged();
+	}
+
+	private onCountryChange(event: Event): void {
 		this._notifyOutputChanged();
 	}
 
