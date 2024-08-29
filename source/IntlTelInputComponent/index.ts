@@ -38,13 +38,40 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 		this._phoneInput.addEventListener("countrychange",this.onCountryChange.bind(this));
 		container.appendChild(this._phoneInput);
 		
-		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
+
+		//this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
+		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
+			initialCountry: "auto",
+			geoIpLookup: callback => {
+				fetch("https://ipapi.co/json")
+				.then(res => res.json())
+				.then(data => callback(data.country_code))
+				.catch(() => callback("ch"));
+			},
+		});
+		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');
+		/*
+		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
+			initialCountry: "ch",
+			onlyCountries: ["ch","fr","de","it"]
+
+
+		  });
+
 
 		// NOTICE: has to load the utils.js in this way, as this component is initialized after window.load event, then utils.js defined in utilsScript option couldn't be loaded as expected.
-		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');
+		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');*/
 	}
 
 	private onPhoneChange(event: Event): void {
+		if(!this._intlTelInputPlugin.isValidNumber())
+		{
+			this._phoneInput.style.color = "red";
+		}
+		else
+		{
+			this._phoneInput.style.color = "black";
+		}
 		this._notifyOutputChanged();
 	}
 

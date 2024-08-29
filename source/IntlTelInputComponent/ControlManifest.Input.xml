@@ -2,7 +2,12 @@
 <manifest>
   <control namespace="Canviz" constructor="IntlTelInputComponent" version="0.0.12" display-name-key="IntlTelInputComponent" description-key="IntlTelInputComponent description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="Phone" display-name-key="Phone_Display_Key" description-key="Phone_Desc_Key" of-type="SingleLine.Text" usage="bound" required="true" />
+    <type-group name="phone">
+      <type>SingleLine.Phone</type>
+      <type>SingleLine.Text</type>
+      <type>SingleLine.Fax</type>
+    </type-group>
+    <property name="Phone" display-name-key="Phone_Display_Key" description-key="Phone_Desc_Key" of-type-group="phone" usage="bound" required="true" />
     <!-- 
       Property node's of-type attribute can be of-type-group attribute. 
       Example:
