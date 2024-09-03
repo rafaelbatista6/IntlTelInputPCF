@@ -41,6 +41,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 
 		//this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
 		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
+			preferredCountries:["ch","fr","de","it"],
 			initialCountry: "auto",
 			geoIpLookup: callback => {
 				fetch("https://ipapi.co/json")
@@ -48,6 +49,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 				.then(data => callback(data.country_code))
 				.catch(() => callback("ch"));
 			},
+			
 		});
 		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');
 		/*

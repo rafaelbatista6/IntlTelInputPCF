@@ -5,7 +5,6 @@
     <type-group name="phone">
       <type>SingleLine.Phone</type>
       <type>SingleLine.Text</type>
-      <type>SingleLine.Fax</type>
     </type-group>
     <property name="Phone" display-name-key="Phone_Display_Key" description-key="Phone_Desc_Key" of-type-group="phone" usage="bound" required="true" />
     <!-- 
