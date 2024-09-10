@@ -9,10 +9,10 @@
     "start": "pcf-scripts start"
   },
   "dependencies": {
-    "@types/intl-tel-input": "^14.0.1",
+    "@types/intl-tel-input": "^18.1.4",
     "@types/node": "^10.12.18",
     "@types/powerapps-component-framework": "^1.2.0",
-    "intl-tel-input": "^16.1.0"
+    "intl-tel-input": "^18.0.0"
   },
   "devDependencies": {
     "pcf-scripts": "^1",

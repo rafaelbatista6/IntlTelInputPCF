@@ -6,7 +6,7 @@
 
 .IntlTelInputComponent .iti--allow-dropdown {
   width: 100%;
-  border: 1px solid rgb(0, 18, 107);
+  border: 0px solid rgb(191, 191, 191);
 }
 
 .IntlTelInputComponent input {
@@ -20,6 +20,13 @@
   height: 32px;
   box-sizing: border-box;
 }
+
+.IntlTelInputComponent input::placeholder {
+  font-weight: bold;
+  opacity: 0.1;
+  color: black;
+}
+
 
 ul#country-listbox{
   position : fixed;

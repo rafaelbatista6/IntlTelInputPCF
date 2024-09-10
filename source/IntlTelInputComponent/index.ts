@@ -41,7 +41,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 
 		//this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
 		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
-			preferredCountries:["ch","fr","de","it"],
+			preferredCountries:["ch","fr","de","it","at"],
 			initialCountry: "auto",
 			geoIpLookup: callback => {
 				fetch("https://ipapi.co/json")
