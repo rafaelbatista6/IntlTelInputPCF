@@ -7,6 +7,12 @@
       <type>SingleLine.Text</type>
     </type-group>
     <property name="Phone" display-name-key="Phone_Display_Key" description-key="Phone_Desc_Key" of-type-group="phone" usage="bound" required="true" />
+    <property name="defaultCC" display-name-key="PropertyDefaultCC_Display_Key" description-key="PropertyDefaultCC_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" default-value="us" />
+    <property name="favoriteCC" display-name-key="PropertyFavoriteCC_Display_Key" description-key="PropertyFavoriteCC_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" default-value="" />
+    <property name="showValidationRule" display-name-key="ShowValidationRule_Display_Key" description-key="ShowValidationRule_Desc_Key" of-type="Enum" usage="input" required="true" default-value="No">
+      <value name="Yes" display-name-key="Yes" description-key="Yes">Yes</value> 
+      <value name="No" display-name-key="No" description-key="No">No</value>  
+    </property>
     <!-- 
       Property node's of-type attribute can be of-type-group attribute. 
       Example:

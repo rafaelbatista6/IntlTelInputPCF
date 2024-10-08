@@ -7,9 +7,11 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	private _notifyOutputChanged: () => void;
 
 	private _phoneInput: HTMLInputElement;
-
 	private _intlTelInputPlugin: IntlTelInput.Plugin;
 
+	private _defaultCC: string;
+	private _favoriteCC: string[]
+	private _numbershowValidationRuleValue = "";
 	/**
 	 * Empty constructor.
 	 */
@@ -29,52 +31,51 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement)
 	{
 		this._notifyOutputChanged = notifyOutputChanged;
+		this._defaultCC = "";
+		this._favoriteCC = [];
+		this._numbershowValidationRuleValue = "";
+
 		this._phoneInput = document.createElement('input');
 		this._phoneInput.setAttribute('type', 'text'); 
 		this._phoneInput.className="inputText";
 		this._phoneInput.readOnly=context.mode.isControlDisabled;
 		this._phoneInput.setAttribute(context.mode.isControlDisabled?"disabled":"enabled","true");
 		this._phoneInput.addEventListener('change', this.onPhoneChange.bind(this));
-		//this._phoneInput.addEventListener("countrychange",this.onCountryChange.bind(this));
 		container.appendChild(this._phoneInput);
 		
+		if(context.parameters.defaultCC?.raw && context.parameters.defaultCC.raw !== null && context.parameters.defaultCC.raw !== "" && context.parameters.defaultCC.raw.indexOf(',') === -1){
+			this._defaultCC = context.parameters.defaultCC.raw.trim().toLowerCase();
+		}
 
-		//this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
+		if(context.parameters.favoriteCC?.raw && context.parameters.favoriteCC.raw !== null && context.parameters.favoriteCC.raw !== ""){
+			this._favoriteCC = context.parameters.favoriteCC.raw.split(',');
+			this._favoriteCC = this._favoriteCC.map(el => el.trim().toLowerCase());
+		}
+
+		this._numbershowValidationRuleValue = context.parameters.showValidationRule?.raw;
+
 		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
-			preferredCountries:["ch","fr","de","it","at"],
-			initialCountry: "ch",
-			//geoIpLookup: callback => {
-			//	fetch("https://ipapi.co/json")
-			//	.then(res => res.json())
-			//	.then(data => callback(data.country_code))
-			//	.catch(() => callback("ch"));
-			//},
+			preferredCountries: this._favoriteCC,
+			initialCountry: this._defaultCC,
 			
 		});
 		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');
-		/*
-		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
-			initialCountry: "ch",
-			onlyCountries: ["ch","fr","de","it"]
-
-
-		  });
-
-
-		// NOTICE: has to load the utils.js in this way, as this component is initialized after window.load event, then utils.js defined in utilsScript option couldn't be loaded as expected.
-		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');*/
+		
 	}
 
 	private onPhoneChange(event: Event): void {
-		
-		if(!this._intlTelInputPlugin.isValidNumber())
+		if(this._numbershowValidationRuleValue == "Yes")
 		{
-			this._phoneInput.style.color = "red";
+			if(!this._intlTelInputPlugin.isValidNumber())
+				{
+					this._phoneInput.style.color = "red";
+				}
+				else
+				{
+					this._phoneInput.style.color = "black";
+				}
 		}
-		else
-		{
-			this._phoneInput.style.color = "black";
-		}
+
 		this._notifyOutputChanged();
 	}
 
