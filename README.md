@@ -4,9 +4,9 @@ This PowerApps Component Framework (PCF) component is designed specifically for 
 
 
 <img src="https://raw.github.com/OGcanviz/IntlTelInputPCF/master/images/vanilla.png" width="424px" height="246px">
-<img src="https://raw.github.com/OGcanviz/IntlTelInputPCF/master/images/IntlTelInput.gif">
+<img src="https://github.com/rafaelbatista6/IntlTelInputPCF/blob/master/images/IntlTelInput.gif">
 
-<img src="https://raw.github.com/OGcanviz/IntlTelInputPCF/master/images/CaptureScreen.PNG" width="424px" height="246px">
+<img src="https://github.com/rafaelbatista6/IntlTelInputPCF/blob/master/images/CaptureScreen.PNG" width="424px" height="246px">
 
 
 
