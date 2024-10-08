@@ -2,32 +2,32 @@
 <ImportExportXml version="9.1.0.643" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <!-- Unique Name of Cds Solution-->
-    <UniqueName>IntlTelInputSolution</UniqueName>
+    <UniqueName>IntlTelInputSolutionUpdate</UniqueName>
     <LocalizedNames>
       <!-- Localized Solution Name in language code -->
-      <LocalizedName description="IntlTelInputSolution" languagecode="1033" />
+      <LocalizedName description="IntlTelInputSolutionUpdate" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.25</Version>
+    <Version>1.16</Version>
     <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>1</Managed>
     <Publisher>
       <!-- Unique Publisher Name of Cds Solution -->
-      <UniqueName>Canviz</UniqueName>
+      <UniqueName>IntTel</UniqueName>
       <LocalizedNames>
         <!-- Localized Cds Publisher Name in language code-->
-        <LocalizedName description="Canviz" languagecode="1033" />
+        <LocalizedName description="IntTel" languagecode="1033" />
       </LocalizedNames>
       <Descriptions>
         <!-- Description of Cds Publisher in language code -->
-        <Description description="Canviz" languagecode="1033" />
+        <Description description="IntTel" languagecode="1033" />
       </Descriptions>
       <EMailAddress xsi:nil="true"></EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
       <!-- Customization Prefix for the Cds Publisher-->
-      <CustomizationPrefix>cvz</CustomizationPrefix>
+      <CustomizationPrefix>int</CustomizationPrefix>
       <!-- Derived Option Value Prefix for the Customization Prefix of Cds Publisher -->
-      <CustomizationOptionValuePrefix>55141</CustomizationOptionValuePrefix>
+      <CustomizationOptionValuePrefix>86657</CustomizationOptionValuePrefix>
       <Addresses>
         <!-- Address of the Publisher-->
         <Address>

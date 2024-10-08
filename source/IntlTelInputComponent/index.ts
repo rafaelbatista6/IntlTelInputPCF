@@ -35,20 +35,20 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 		this._phoneInput.readOnly=context.mode.isControlDisabled;
 		this._phoneInput.setAttribute(context.mode.isControlDisabled?"disabled":"enabled","true");
 		this._phoneInput.addEventListener('change', this.onPhoneChange.bind(this));
-		this._phoneInput.addEventListener("countrychange",this.onCountryChange.bind(this));
+		//this._phoneInput.addEventListener("countrychange",this.onCountryChange.bind(this));
 		container.appendChild(this._phoneInput);
 		
 
 		//this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
 		this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {
 			preferredCountries:["ch","fr","de","it","at"],
-			initialCountry: "auto",
-			geoIpLookup: callback => {
-				fetch("https://ipapi.co/json")
-				.then(res => res.json())
-				.then(data => callback(data.country_code))
-				.catch(() => callback("ch"));
-			},
+			initialCountry: "ch",
+			//geoIpLookup: callback => {
+			//	fetch("https://ipapi.co/json")
+			//	.then(res => res.json())
+			//	.then(data => callback(data.country_code))
+			//	.catch(() => callback("ch"));
+			//},
 			
 		});
 		window.intlTelInputGlobals.loadUtils('https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.1.0/js/utils.js');
@@ -66,6 +66,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	}
 
 	private onPhoneChange(event: Event): void {
+		
 		if(!this._intlTelInputPlugin.isValidNumber())
 		{
 			this._phoneInput.style.color = "red";
