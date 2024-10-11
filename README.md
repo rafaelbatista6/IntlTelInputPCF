@@ -1,5 +1,5 @@
 # International Telephone Input Power Apps Component
-This PowerApps Component Framework (PCF) component is designed specifically for model-driven apps and compatible with latest UI version (September 2024). It includes a textbox that allows entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.
+This PowerApps Component Framework (PCF) component is a fork of the existing project  <a href="https://github.com/OGcanviz/IntlTelInputPCF">IntlTelInputPCF</a>. Its key feature is its design specifically for model-driven apps, making it compatible with the latest UI version (September 2024). It includes a textbox that allows users to enter and validate international telephone numbers, adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder, and provides formatting and validation methods.
 
 
 <img src="https://github.com/rafaelbatista6/IntlTelInputPCF/blob/master/images/IntlTelInput.gif">
