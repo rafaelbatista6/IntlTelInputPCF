@@ -14,9 +14,10 @@ This PowerApps Component Framework (PCF) component is designed specifically for 
 Component can be applied on single line of text field attributes (whatever subformat text, phone or fax)
 
 This PCF control has 3 static input elements that you can configure:
-defaultCC: String text code that defines the ISO-2 country code corresponding to the default flag displayed for a new or empty number. Example value is 'fr' or 'gb'. Default value is 'us'.
-favoriteCC: String text code that defines the list of ISO-2 country codes to appear as preferred countries at the top of the control. The order of codes is transposed to the order on the list. Example value: 'us,gb,fr,es'. Default value is empty.
-showValidationRule: Enum with values 'Yes' or 'No'. When set to 'Yes', the control will validate the phone number format when updated by the user. If the value doesn't match the country format, the input is highlighted in red. Default value is 'No'.
+
+***defaultCC***: String text code that defines the ISO-2 country code corresponding to the default flag displayed for a new or empty number. Example value is 'fr' or 'gb'. Default value is 'us'.
+***favoriteCC***: String text code that defines the list of ISO-2 country codes to appear as preferred countries at the top of the control. The order of codes is transposed to the order on the list. Example value: 'us,gb,fr,es'. Default value is empty.
+***showValidationRule***: Enum with values 'Yes' or 'No'. When set to 'Yes', the control will validate the phone number format when updated by the user. If the value doesn't match the country format, the input is highlighted in red. Default value is 'No'.
 
 <img src="https://github.com/rafaelbatista6/IntlTelInputPCF/blob/master/images/CaptureScreen.PNG">
 
