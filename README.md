@@ -15,6 +15,9 @@ Its key feature is its design specifically for model-driven apps, making it comp
 
 Component can be applied on single line of text field attributes (whatever subformat text, phone or fax)
 
+Important: This component will store numbers in Dataverse columns in the format +XXXXXXXX without spaces. If you plan to add this control to an existing column containing data, it is important to realign the data to match this format. The behavior when opening a record where the phone number field does not match this format is unpredictable.
+
+
 This PCF control has 3 static input elements that you can configure:
 
 ***defaultCC***: String text code that defines the ISO-2 country code corresponding to the default flag displayed for a new or empty number. Example value is 'fr' or 'gb'. Default value is 'us'.
