@@ -13,6 +13,7 @@
       <value name="Yes" display-name-key="Yes" description-key="Yes">Yes</value> 
       <value name="No" display-name-key="No" description-key="No">No</value>  
     </property>
+    <property name="isPhoneNotValid" display-name-key="Booleandvalidator_Display_SchemaName" description-key="Booleandvalidator_Display_Desc_Key" of-type="TwoOptions" usage="bound" required="false" />
     <!-- 
       Property node's of-type attribute can be of-type-group attribute. 
       Example:

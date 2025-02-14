@@ -12,6 +12,9 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	private _defaultCC: string;
 	private _favoriteCC: string[]
 	private _numbershowValidationRuleValue = "";
+	private _isPhoneNotValid : boolean;
+	private _context : ComponentFramework.Context<IInputs>;
+
 	/**
 	 * Empty constructor.
 	 */
@@ -33,7 +36,9 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 		this._notifyOutputChanged = notifyOutputChanged;
 		this._defaultCC = "";
 		this._favoriteCC = [];
+		debugger;
 		this._numbershowValidationRuleValue = "";
+		this._isPhoneNotValid = false;
 
 		this._phoneInput = document.createElement('input');
 		this._phoneInput.setAttribute('type', 'text'); 
@@ -64,18 +69,25 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	}
 
 	private onPhoneChange(event: Event): void {
+		if(!this._intlTelInputPlugin.isValidNumber())
+		{
+			this._isPhoneNotValid = true;
+		}
+		else
+		{
+			this._isPhoneNotValid = false;
+		}
 		if(this._numbershowValidationRuleValue == "Yes")
 		{
 			if(!this._intlTelInputPlugin.isValidNumber())
-				{
-					this._phoneInput.style.color = "red";
-				}
-				else
-				{
-					this._phoneInput.style.color = "black";
-				}
+			{
+				this._phoneInput.style.color = "red";
+			}
+			else
+			{
+				this._phoneInput.style.color = "black";
+			}
 		}
-
 		this._notifyOutputChanged();
 	}
 
@@ -83,6 +95,8 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 		this._notifyOutputChanged();
 	}
 
+
+	
 	/**
 	 * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
 	 * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
@@ -99,7 +113,8 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	public getOutputs(): IOutputs
 	{
 		return {
-			Phone: this._intlTelInputPlugin.getNumber()
+			Phone: this._intlTelInputPlugin.getNumber(),
+			isPhoneNotValid : this._isPhoneNotValid
 		};
 	}
 

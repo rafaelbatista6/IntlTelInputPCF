@@ -50,6 +50,7 @@ var IntlTelInputComponent = /** @class */ (function () {
         else {
             this._phoneInput.style.color = "black";
         }
+        
         this._notifyOutputChanged();
     };
     IntlTelInputComponent.prototype.onCountryChange = function (event) {
