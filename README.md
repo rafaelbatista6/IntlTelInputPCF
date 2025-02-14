@@ -37,4 +37,4 @@ This component uses the following library.
 https://www.npmjs.com/package/intl-tel-input
 
 ## Installation
-Follow this [article](https://docs.microsoft.com/en-us/powerapps/developer/component-framework/component-framework-for-canvas-apps) to setup your enviornment and install the component [Solution package](https://github.com/OGcanviz/IntlTelInputPCF/tree/master/releases).
+Follow this [article](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/code-components-model-driven-apps) to setup your enviornment and install the component.
