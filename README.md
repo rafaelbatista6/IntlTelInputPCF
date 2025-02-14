@@ -18,6 +18,10 @@ defaultCC: String text code that defines the ISO-2 country code corresponding to
 favoriteCC: String text code that defines the list of ISO-2 country codes to appear as preferred countries at the top of the control. The order of codes is transposed to the order on the list. Example value: 'us,gb,fr,es'. Default value is empty.
 showValidationRule: Enum with values 'Yes' or 'No'. When set to 'Yes', the control will validate the phone number format when updated by the user. If the value doesn't match the country format, the input is highlighted in red. Default value is 'No'.
 
+In addition to the phone number output, there is a bounded output :
+isPhoneNotValid : optional TwoOptions field bounded that will indicate if current number entered is invalid.
+
+
 ## Libraries
 This component uses the following library.
 https://www.npmjs.com/package/intl-tel-input
