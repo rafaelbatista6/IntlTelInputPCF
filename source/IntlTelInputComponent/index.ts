@@ -36,7 +36,6 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 		this._notifyOutputChanged = notifyOutputChanged;
 		this._defaultCC = "";
 		this._favoriteCC = [];
-		debugger;
 		this._numbershowValidationRuleValue = "";
 		this._isPhoneNotValid = false;
 
@@ -69,14 +68,20 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	}
 
 	private onPhoneChange(event: Event): void {
-		if(!this._intlTelInputPlugin.isValidNumber())
+		if(this._intlTelInputPlugin.getNumber() !== "")
 		{
-			this._isPhoneNotValid = true;
+			if(!this._intlTelInputPlugin.isValidNumber())
+				{
+					this._isPhoneNotValid = true;
+				}
+				else
+				{
+					this._isPhoneNotValid = false;
+				}
 		}
 		else
-		{
 			this._isPhoneNotValid = false;
-		}
+
 		if(this._numbershowValidationRuleValue == "Yes")
 		{
 			if(!this._intlTelInputPlugin.isValidNumber())
