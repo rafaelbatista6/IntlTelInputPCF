@@ -23,7 +23,7 @@ var IntlTelInputComponent = /** @class */ (function () {
         this._phoneInput.readOnly = context.mode.isControlDisabled;
         this._phoneInput.setAttribute(context.mode.isControlDisabled ? "disabled" : "enabled", "true");
         this._phoneInput.addEventListener('change', this.onPhoneChange.bind(this));
-        //this._phoneInput.addEventListener("countrychange",this.onCountryChange.bind(this));
+        this._phoneInput.addEventListener('countrychange',this.onCountryChange.bind(this));
         container.appendChild(this._phoneInput);
         //this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {});
         this._intlTelInputPlugin = IntlTelInput(this._phoneInput, {

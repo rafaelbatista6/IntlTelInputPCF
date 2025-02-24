@@ -45,6 +45,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 		this._phoneInput.readOnly=context.mode.isControlDisabled;
 		this._phoneInput.setAttribute(context.mode.isControlDisabled?"disabled":"enabled","true");
 		this._phoneInput.addEventListener('change', this.onPhoneChange.bind(this));
+		this._phoneInput.addEventListener('countrychange',this.onCountryChange.bind(this));
 		container.appendChild(this._phoneInput);
 		
 		if(context.parameters.defaultCC?.raw && context.parameters.defaultCC.raw !== null && context.parameters.defaultCC.raw !== "" && context.parameters.defaultCC.raw.indexOf(',') === -1){
@@ -97,6 +98,31 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 	}
 
 	private onCountryChange(event: Event): void {
+		if(this._intlTelInputPlugin.getNumber() !== "")
+		{
+			if(!this._intlTelInputPlugin.isValidNumber())
+				{
+					this._isPhoneNotValid = true;
+				}
+				else
+				{
+					this._isPhoneNotValid = false;
+				}
+		}
+		else
+			this._isPhoneNotValid = false;
+
+		if(this._numbershowValidationRuleValue == "Yes")
+		{
+			if(!this._intlTelInputPlugin.isValidNumber())
+			{
+				this._phoneInput.style.color = "red";
+			}
+			else
+			{
+				this._phoneInput.style.color = "black";
+			}
+		}
 		this._notifyOutputChanged();
 	}
 
