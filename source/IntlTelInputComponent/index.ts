@@ -104,7 +104,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 				{
 					this._isPhoneNotValid = true;
 				}
-				else
+				else 
 				{
 					this._isPhoneNotValid = false;
 				}
