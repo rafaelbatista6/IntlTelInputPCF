@@ -114,7 +114,7 @@ export class IntlTelInputComponent implements ComponentFramework.StandardControl
 
 		if(this._numbershowValidationRuleValue == "Yes")
 		{
-			if(!this._intlTelInputPlugin.isValidNumber())
+			if(!this._intlTelInputPlugin.isValidNumber() && this._intlTelInputPlugin.getNumber() !== "")
 			{
 				this._phoneInput.style.color = "red";
 			}
